@@ -6,15 +6,14 @@ Can be used as a basepoint for further FLASK app development
 ## Setup for linux
 1. Make virtual environment `python3 -m venv venv`
 2. Activate environment `source venv/bin/activate`
-3. Upgrade pip `pip install --upgrade pip`
-4. Install packages `pip install -r requirements.txt`
-5. cd into repo folder
+3. Install packages `pip install -r requirements.txt`
+4. cd into repo folder
 5. Create environment variable `sudo nano webApp/.env`
 ```
 SECRET_KEY = RANDOM_STRING
 SQLALCHEMY_DATABASE_URI = 'sqlite:///app.db'
 ```
-6. Initialize database `flask db init -m "first commit"`
+6. Initialize database `flask db init`
 7. Migrate  `flask db migrate -m "Initial migration."`
 8. Update `flask db upgrade`
 
