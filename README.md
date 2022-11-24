@@ -13,9 +13,10 @@ Can be used as a basepoint for further FLASK app development
 SECRET_KEY = RANDOM_STRING
 SQLALCHEMY_DATABASE_URI = 'sqlite:///app.db'
 ```
-6. Initialize database `flask db init`
-7. Migrate  `flask db migrate -m "Initial migration."`
-8. Update `flask db upgrade`
+6. `export FLASK_APP=run.py`
+7. Initialize database `flask db init`
+8. Migrate  `flask db migrate -m "Initial migration."`
+9. Update `flask db upgrade`
 
 ## How to run the app locally
 1. Navigate to repo folder
