@@ -20,5 +20,6 @@ SQLALCHEMY_DATABASE_URI = 'sqlite:///app.db'
 
 ## How to run the app locally
 1. Navigate to repo folder
-2. `set FLASK_APP=run.py`
-3. Run with debug mode `flask --debug run`
+2. Activate environment `source venv/bin/activate`
+3. `set FLASK_APP=run.py`
+4. Run with debug mode `flask --debug run`
