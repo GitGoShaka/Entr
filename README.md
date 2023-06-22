@@ -4,10 +4,10 @@ Barebones Flask application with a SQLite database, 1 blueprint and HTML base pa
 Can be used as a basepoint for further FLASK app development
 
 ## Setup for linux
-1. Make virtual environment `python3 -m venv venv`
-2. Activate environment `source venv/bin/activate`
-3. Install packages `pip install -r requirements.txt`
-4. cd into repo folder
+1. cd into repo folder
+2. Make virtual environment `python3 -m venv venv`
+3. Activate environment `source venv/bin/activate`
+4. Install packages `pip install -r requirements.txt`
 5. Create environment variable `sudo nano webApp/.env`
 ```
 SECRET_KEY = RANDOM_STRING
