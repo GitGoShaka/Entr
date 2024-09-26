@@ -1,4 +1,4 @@
-from webApp import db
+from server import db
 from datetime import datetime
 
 #Basic model

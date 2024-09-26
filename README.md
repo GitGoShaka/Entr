@@ -8,7 +8,7 @@ Can be used as a basepoint for further FLASK app development
 2. Make virtual environment `python3 -m venv venv`
 3. Activate environment `source venv/bin/activate`
 4. Install packages `pip install -r requirements.txt`
-5. Create environment variable `sudo nano webApp/.env`
+5. Create environment variable `sudo nano server/.env`
 ```
 SECRET_KEY = RANDOM_STRING
 SQLALCHEMY_DATABASE_URI = 'sqlite:///app.db'
