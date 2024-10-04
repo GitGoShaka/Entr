@@ -3,12 +3,13 @@
 import React, {useEffect, useState} from 'react'
 import { PdfUploader } from '@/components/pdf-uploader'
 
-function Page() {
 
+function Page() {
+  const apiUrl = 'http://localhost:4000';
   const [data, setData] = useState("Loading");
 
   useEffect(() => {
-    fetch('http://localhost:8080/api/home')
+    fetch(`${apiUrl}/api/home`)
       .then(response => response.json())
       .then(data => setData(data.message))
   }, [])
@@ -17,7 +18,6 @@ function Page() {
     <div>
       <div>{data}</div>
       <PdfUploader />
-      <SalesFunnel />
     </div>
   )
 }

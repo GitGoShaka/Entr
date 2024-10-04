@@ -5,6 +5,8 @@ import { Upload, File, X, Loader } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 export function PdfUploader() {
+  const apiUrl = 'http://localhost:4000';
+
   const [file, setFile] = useState<File | null>(null)
   const [dragActive, setDragActive] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
@@ -56,7 +58,7 @@ export function PdfUploader() {
       formData.append('pdf', file);
 
       try {
-        const uploadResponse = await fetch('http://localhost:8080/api/upload-pdf', {
+        const uploadResponse = await fetch(`${apiUrl}/api/upload-pdf`, {
           method: 'POST',
           body: formData,
         });
@@ -64,7 +66,7 @@ export function PdfUploader() {
         if (uploadResponse.ok) {
           console.log('File uploaded successfully');
           const fileName = file.name;
-          const processResponse = await fetch('http://localhost:8080/api/process-pdf', {
+          const processResponse = await fetch(`${apiUrl}/api/process-pdf`, {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
@@ -76,7 +78,8 @@ export function PdfUploader() {
             const result = await processResponse.json();
             setAnalysisResult(JSON.stringify(result, null, 2));
           } else {
-            console.error('PDF processing failed');
+            const errorResponse = await processResponse.json();
+            console.error(errorResponse);
             setAnalysisResult('PDF processing failed');
           }
         } else {
