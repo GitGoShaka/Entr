@@ -3,7 +3,7 @@ services:
   #Nextjs frontend service
   nextapp:
     container_name: nextapp
-    image: nextapp:1.0.0
+    image: thomasvdz/entr-nextapp
     build:
       context: ./client/entr
       dockerfile: next.dockerfile
@@ -17,26 +17,36 @@ services:
   #Flask server/backend 
   flaskapp:
     container_name: flaskapp
-    image: flaskapp:1.0.1
+    image: thomasvdz/entr-flaskapp
     build:
       context: ./server
       dockerfile: flask.dockerfile
     ports:
       - 4000:4000
-    environment:
-
+    env_file: "./server/.env"
     depends_on:
       - db 
 
+  #Nginx Service
+  nginx:
+    container_name: nginx
+    image: thomasvdz/entr-nginx
+    build:
+      context: ./nginx
+      dockerfile: nginx.dockerfile
+    ports:
+      - 80:80
+    depends_on:
+      - nextapp
 
   #Database Service
   db:
     container_name: db
     image: postgres:16
     environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: test
-      POSTGRES_DB: Entr
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=pgAdmin1!
+      - POSTGRES_DB=entr
     ports:
       - 5432:5432
     volumes:
